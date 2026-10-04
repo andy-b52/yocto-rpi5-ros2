@@ -1,0 +1,18 @@
+[Unit]
+Description=ROS 2 py_pubsub publisher
+After=network.target
+
+[Service]
+Type=simple
+# Load the ROS 2 environment, then replace the shell with the node
+ExecStart=/bin/sh -c '. /opt/ros/lyrical/setup.sh && exec /opt/ros/lyrical/lib/py_pubsub/publisher'
+# Flush Python output immediately so it shows up in the journal
+Environment=PYTHONUNBUFFERED=1
+# ROS writes its log files under ROS_HOME (system services have no HOME)
+Environment=ROS_HOME=/var/lib/ros
+StateDirectory=ros
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

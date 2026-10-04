@@ -1,0 +1,15 @@
+[Unit]
+Description=ROS 2 py_pubsub subscriber
+After=network.target py-pubsub-publisher.service
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c '. /opt/ros/lyrical/setup.sh && exec /opt/ros/lyrical/lib/py_pubsub/subscriber'
+Environment=PYTHONUNBUFFERED=1
+Environment=ROS_HOME=/var/lib/ros
+StateDirectory=ros
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
