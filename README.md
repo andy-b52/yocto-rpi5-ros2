@@ -17,10 +17,32 @@ TEMPLATECONF=$PWD/layers/meta-ros2-app/conf/templates/default \
 bitbake core-image-base
 ```
 
-## Run on the target
+## On the target
+
+The publisher and subscriber start automatically at boot as systemd services
+(`py-pubsub-publisher` and `py-pubsub-subscriber`).
+
+Check that they are running and see their output:
+
+```bash
+systemctl status py-pubsub-publisher py-pubsub-subscriber
+journalctl -u py-pubsub-subscriber -f
+```
+
+Stop, start or disable them:
+
+```bash
+systemctl stop py-pubsub-publisher py-pubsub-subscriber
+systemctl start py-pubsub-publisher py-pubsub-subscriber
+systemctl disable py-pubsub-publisher py-pubsub-subscriber   # don't start at boot
+```
+
+Inspect the topic with the ROS 2 CLI:
 
 ```bash
 source /opt/ros/lyrical/setup.sh
-ros2 run py_pubsub publisher
-ros2 run py_pubsub subscriber
+ros2 topic echo /counter/value
 ```
+
+To run a node by hand (`ros2 run py_pubsub publisher`), stop its service first,
+otherwise two instances run at the same time.
