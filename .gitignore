@@ -1,0 +1,4 @@
+# BitBake build output (tmp, sstate-cache, downloads, cache)
+/build/
+__pycache__/
+*.egg-info/

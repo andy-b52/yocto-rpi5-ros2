@@ -1,0 +1,16 @@
+[submodule "layers/poky"]
+	path = layers/poky
+	url = https://git.yoctoproject.org/poky
+	branch = scarthgap
+[submodule "layers/meta-raspberrypi"]
+	path = layers/meta-raspberrypi
+	url = https://github.com/agherzan/meta-raspberrypi.git
+	branch = scarthgap
+[submodule "layers/meta-openembedded"]
+	path = layers/meta-openembedded
+	url = https://github.com/openembedded/meta-openembedded.git
+	branch = scarthgap
+[submodule "layers/meta-ros"]
+	path = layers/meta-ros
+	url = https://github.com/ros/meta-ros.git
+	branch = scarthgap

@@ -1,0 +1,17 @@
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  ##OEROOT##/meta \
+  ##OEROOT##/meta-poky \
+  ##OEROOT##/meta-yocto-bsp \
+  ##OEROOT##/../meta-raspberrypi \
+  ##OEROOT##/../meta-openembedded/meta-oe \
+  ##OEROOT##/../meta-openembedded/meta-python \
+  ##OEROOT##/../meta-ros/meta-ros-common \
+  ##OEROOT##/../meta-ros/meta-ros2 \
+  ##OEROOT##/../meta-ros/meta-ros2-lyrical \
+  ##OEROOT##/../meta-ros2-app \
+  "
