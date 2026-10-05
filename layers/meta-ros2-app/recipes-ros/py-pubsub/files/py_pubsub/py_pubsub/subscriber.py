@@ -3,7 +3,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 
 
-class Subsriber(Node):
+class Subscriber(Node):
     def __init__(self):
         super().__init__('subscriber')
         self.sub = self.create_subscription(String, 'counter/value', self.callback, 10)
@@ -14,7 +14,7 @@ class Subsriber(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = Subsriber()
+    node = Subscriber()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
